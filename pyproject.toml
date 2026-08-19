@@ -4,7 +4,10 @@ version = "0.1.0"
 description = "Add your description here"
 readme = "README.md"
 requires-python = ">=3.14"
-dependencies = []
+dependencies = [
+    "numpy>=2.5.2",
+    "pandas>=3.0.5",
+]
 
 [project.scripts]
 veri-muhendisligi-staj = "veri_muhendisligi_staj:main"
