@@ -1,4 +1,6 @@
-.PHONY: format lint test check clean
+.PHONY: install format lint test check clean
+install:
+	uv sync
 
 format:
 	uv run ruff check . --fix
