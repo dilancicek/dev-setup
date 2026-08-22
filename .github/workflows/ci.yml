@@ -1,0 +1,24 @@
+name: CI Pipeline
+
+on:
+  push:
+    branches: [ "master", "main" ]
+  pull_request:
+    branches: [ "master", "main" ]
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Kodu İndir (Checkout)
+        uses: actions/checkout@v4
+
+      - name: UV Paket Yöneticisini Kur
+        uses: astral-sh/setup-uv@v2
+
+      - name: Kütüphaneleri Yükle
+        run: make install
+
+      - name: Kod Kalitesi ve Testleri Çalıştır
+        run: make check
