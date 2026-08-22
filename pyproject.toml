@@ -1,9 +1,9 @@
 [project]
 name = "veri-muhendisligi-staj"
 version = "0.1.0"
-description = "Add your description here"
+description = "Veri Muhendisligi Staj - Odev 1"
 readme = "README.md"
-requires-python = ">=3.14"
+requires-python = ">=3.12"
 dependencies = [
     "numpy>=2.5.2",
     "pandas>=3.0.5",
