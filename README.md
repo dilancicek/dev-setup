@@ -1,4 +1,5 @@
 # Veri Mühendisliği Staj Projesi (`dev-setup`)
+[![CI Pipeline](https://github.com/dilancicek/dev-setup/actions/workflows/ci.yml/badge.svg)](https://github.com/dilancicek/dev-setup/actions/workflows/ci.yml)
 
 Bu depo, Veri Mühendisliği staj programı kapsamındaki çalışma, altyapı kurulumları ve veri işleme egzersizlerini içermektedir.
 
@@ -27,3 +28,10 @@ Bu depo, Veri Mühendisliği staj programı kapsamındaki çalışma, altyapı k
 ---
 
 ## 📁 Proje Yapısı
+```bash
+├── .github/          # CI/CD (GitHub Actions) talimatları
+├── src/              # Ana proje kodları
+├── tests/            # Pytest ile yazılmış test dosyaları
+├── Makefile          # Otomasyon ve terminal komutları
+├── pyproject.toml    # Proje ve bağımlılık (uv) ayarları
+└── README.md         # Proje dokümantasyonu
