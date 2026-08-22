@@ -1,0 +1,17 @@
+# Byte-compiled / optimized / DLL dosyaları
+__pycache__/
+*.py[cod]
+*$py.class
+
+# Test ve Coverage raporları
+.coverage
+htmlcov/
+.pytest_cache/
+
+# Veri dosyaları
+*.csv
+
+# Sanal ortam dosyaları (Virtual environments)
+.venv/
+venv/
+env/
