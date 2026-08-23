@@ -1,7 +1,7 @@
 # 📝 Ödev 1.6: Kontrol Soruları
 
 **1. `pip install` ile `uv add` arasında bağımlılık çözümlemesi açısından fark nedir?**
-`pip install` paketleri indirip geçiyor ama paketin içindeki diğer alt paketlerde bazen kafası karışıp sürüm çakışmalarına sebep olabiliyor. `uv add` ise hem çok daha hızlı hem de paketi eklerken arkada hemen bir kilit dosyası (`uv.lock`) oluşturuyor. Kimin hangi sürümle çalışacağını kesinleştirdiği için "benim bilgisayarımda çalışıyordu, sende niye bozuldu" sorunlarını çözüyor.
+`pip install`'ın da aslında kendi içinde bir bağımlılık çözümleyicisi (resolver) var ancak karmaşık alt paketlerde bazen kafası karışıp sürüm çakışmalarına sebep olabiliyor. Asıl fark stratejide ve kilit (lock) dosyasında yatıyor; `uv add` gelişmiş bir çözümleme stratejisiyle hem çok daha hızlı çalışıyor hem de paketi eklerken arkada hemen kesin bir kilit dosyası (`uv.lock`) oluşturuyor. Kimin hangi sürümle çalışacağını kesinleştirdiği için "benim bilgisayarımda çalışıyordu, sende niye bozuldu" sorunlarını çözüyor.
 
 **2. `__pycache__` neden `.gitignore`'da olmalı?**
 Çünkü bunların bizim yazdığımız asıl kodla bir ilgisi yok. Python'ın kodu daha hızlı çalıştırmak için kendi kendine oluşturduğu geçici dosyalar. Bunları GitHub'a atmak hem depoyu boşuna çöplüğe çevirip şişirir, hem de ekipteki başka birinin bilgisayarındaki geçici dosyalarla çakışıp durduk yere conflict (çakışma) çıkartır.
