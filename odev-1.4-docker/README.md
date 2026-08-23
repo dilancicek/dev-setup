@@ -2,25 +2,39 @@
 
 Bu proje, bir FastAPI uygulamasının Docker kullanılarak konteynerize edilmesini ve Docker Compose ile bir PostgreSQL veritabanı ile entegre çalıştırılmasını içermektedir.
 
-## 🚀 Teknolojiler
-- **Backend:** Python 3.11, FastAPI, Uvicorn
-- **Veritabanı:** PostgreSQL (15-alpine)
-- **Altyapı:** Docker, Docker Compose
+Aşağıdaki terminal dökümünde teknolojiler, multi-stage build optimizasyon raporu ve komut kılavuzu tek parça halinde belgelenmiştir:
 
-## 📦 Multi-stage Build ve Optimizasyon
-İmaj boyutunu minimuma indirmek ve gereksiz cache dosyalarından kurtulmak amacıyla `Dockerfile` içerisinde **Multi-stage (Çok Aşamalı)** mimari kullanılmıştır. `builder` aşamasında kütüphaneler kurulmuş, `runner` aşamasında ise sadece çalışan dosyalar transfer edilmiştir.
+```text
+# ==========================================
+# 1. TEKNOLOJİ STACK VE SÜRÜM BİLGİSİ
+# ==========================================
+- Backend: Python 3.12, FastAPI, Uvicorn
+- Veritabanı: PostgreSQL (15-alpine)
+- Altyapı: Docker, Docker Compose
 
-**Boyut Karşılaştırması:**
-- 🔴 Optimizasyon Öncesi Standart İmaj Beklentisi: **~950 MB**
-- 🟢 Multi-stage Build Sonrası İmaj Boyutu: **57 MB**
 
-## 🛠️ Kurulum ve Çalıştırma
+# ==========================================
+# 2. İMAJ BOYUTU OPTİMİZASYON KANITI (Multi-stage)
+# ==========================================
+# Standart imaj ile multi-stage optimize imajın gerçek ölçüm sonuçları:
 
-Projeyi ve veritabanını aynı anda arka planda çalıştırmak için terminalde şu komutu kullanabilirsiniz:
-`docker compose up -d`
+REPOSITORY   TAG       DISK USAGE   CONTENT SIZE
+api-eski     latest    1.69GB       439MB
+api-yeni     latest    228MB        54.6MB
 
-Servislerin durumunu kontrol etmek için:
-`docker ps`
+- Optimizasyon Öncesi (api-eski): Standart Python 3.12 imajı -> 1.69 GB
+- Optimizasyon Sonrası (api-yeni): Multi-stage slim mimari -> 228 MB
+- Tasarruf: %85+ oranında disk alanı kazanımı sağlanmıştır.
 
-Sistemi durdurmak ve konteynerleri kaldırmak için:
-`docker compose down`
+
+# ==========================================
+# 3. KURULUM VE ÇALIŞTIRMA KOMUTLARI
+# ==========================================
+# Projeyi ve veritabanını arka planda ayağa kaldırma:
+docker compose up -d
+
+# Servislerin durumunu kontrol etme:
+docker ps
+
+# Sistemi durdurma ve konteynerleri kaldırma:
+docker compose down
