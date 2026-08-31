@@ -24,6 +24,10 @@ Bu depo, Veri Mühendisliği staj programı kapsamındaki çalışma, altyapı k
   - Terminal komutlarıyla satır sayımı, kolon frekansı sıralaması ve filtreleme yapıldı.
   - Ortak anahtar (`id`) üzerinden iki dosya birleştirildi (`join`).
   - Egzersiz detayları ve komutlar `notes/cli-exercises.md` raporuna aktarıldı.
+- [x] Ödev 1.3
+- [x] Ödev 1.4
+- [x] Ödev 1.5
+- [x] Ödev 1.6
 
 ---
 
@@ -35,3 +39,5 @@ Bu depo, Veri Mühendisliği staj programı kapsamındaki çalışma, altyapı k
 ├── Makefile          # Otomasyon ve terminal komutları
 ├── pyproject.toml    # Proje ve bağımlılık (uv) ayarları
 └── README.md         # Proje dokümantasyonu
+
+```

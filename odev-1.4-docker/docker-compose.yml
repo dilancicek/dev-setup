@@ -1,4 +1,4 @@
-version: '3.8'
+
 
 services:
   api:
@@ -16,8 +16,6 @@ services:
       - .env
     volumes:
       - postgres_data:/var/lib/postgresql/data
-    ports:
-      - "5432:5432"
 
 volumes:
   postgres_data:
